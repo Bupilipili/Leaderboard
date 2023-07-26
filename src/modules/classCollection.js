@@ -47,5 +47,5 @@ export class RecordsCollection {
       </div>
     `);
     this.Table.innerHTML = displayRecords.join('');
-  } 
+  }
 }
