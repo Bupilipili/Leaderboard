@@ -1,0 +1,121 @@
+
+body {
+  margin: 0 auto;
+  min-width: 375px;
+}
+
+.content {
+  display: flex;
+  gap: 28px;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-title {
+  margin: 0 auto;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-size: 48px;
+}
+
+.refresh-button {
+  width: 60px;
+  height: 26px;
+  border: 1px solid #000;
+  box-shadow: 4px 3px 2px #000;
+  justify-self: flex-end;
+  font-size: 1.2em;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.table-section {
+  width: min(420px, 92%);
+  border: 3px solid rgba(0, 0, 0, 0.9);
+  margin: 0 auto;
+}
+
+.record-store {
+  position: relative;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+}
+
+.odd-index {
+  background-color: #ddd;
+}
+
+.store-text {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  padding: 1%;
+}
+
+.form-title {
+  font-size: 1.4em;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+.name {
+  margin-right: 2px;
+}
+
+.score {
+  margin-left: 2px;
+}
+
+.by-text {
+  padding-right: 2px;
+}
+
+&:hover {
+  background-color: red;
+}
+
+&:active {
+  background-color: rgb(242, 163, 163);
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: min(420px, 90%);
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+}
+
+.input-field1,
+.input-field2 {
+  width: min(340px, 92%);
+  height: 32px;
+  margin: 0 auto;
+  color: #000;
+  font-size: 1.2em;
+  padding: 0 2%;
+  border: 3px solid #000;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+}
+
+.add-button {
+  width: 70px;
+  height: 30px;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 4px 3px 2px #000;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+  position: absolute;
+  right: 10%;
+  bottom: 0%;
+}
