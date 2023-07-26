@@ -1,6 +1,6 @@
 import './style.css';
-import { RecordsCollection } from './modules/classCollection.js'
+import { RecordsCollection } from './modules/classCollection.js';
 
-  const recordsCollection = new RecordsCollection();
+const recordsCollection = new RecordsCollection();
 
-  recordsCollection.addRecords();
+recordsCollection.addRecords();
