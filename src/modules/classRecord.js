@@ -4,4 +4,4 @@ export class Record {
     this.name = name;
     this.score = score;
   }
-}  
+}
