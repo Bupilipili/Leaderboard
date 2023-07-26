@@ -26,9 +26,9 @@
 
 
 
-# 📖 [To do list] <a name="about-project"></a>
+# 📖 Leaderboard <a name="about-project"></a>
 
-**[To do list]** is an application that allows users to add the list of activities they want to do. 
+**Leaderboard** is an application that allows users to add the records of an event or competition showing the name and the scores of each participant. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -40,7 +40,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Adding and removing activities]**
+- **[Adding records]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -67,9 +67,9 @@ Clone this repository to your desired folder:
 
 Example commands:
 
-  git clone https://github.com/Bupilipili/To-do-list.git
+  git clone https://github.com/Bupilipili/Leaderboard.git
  
-  cd To-do-list
+  cd Leaderboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,7 +94,7 @@ Example commands:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [https://github.com/Bupilipili/To-do-list/issues].
+Feel free to check the [https://github.com/Bupilipili/Leaderboard/issues].
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
