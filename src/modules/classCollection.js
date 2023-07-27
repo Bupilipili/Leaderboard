@@ -1,41 +1,123 @@
 /* eslint-disable import/prefer-default-export */
 import { Record } from './classRecord.js';
 
+// Represents a collection of records and manages interactions with API and local storage
 export class RecordsCollection {
   constructor() {
+    // Load existing records from local storage or initialize an empty array   
     this.collection = JSON.parse(localStorage.getItem('records')) || [];
     this.buttonAdd = document.querySelector('.add-button');
+    this.buttonRefresh = document.querySelector('.refresh-button');
     this.Name = document.querySelector('.input-field1');
     this.Score = document.querySelector('.input-field2');
     this.Table = document.querySelector('.table-section');
 
-    this.showRecords();
+    // Load the game ID from local storage (if available) or initialize it as null
+    this.gameID = localStorage.getItem('gameID');
 
-    this.buttonAdd.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.addRecords();
-      this.saveRecords();
-      this.showRecords();
-      this.clearInput();
-    });
+    // Add event listeners to buttons and initialize the instance
+    this.buttonAdd.addEventListener('click', () => this.addRecords());
+    this.buttonRefresh.addEventListener('click', () => this.fetchScoresAndShowRecords());
+    this.init();
   }
 
-  addRecords() {
-    if (this.Name.value !== '' && this.Score.value !== '') {
-      const record = new Record(this.Name.value, this.Score.value);
-      this.collection.push(record);
+  // Method to create a new game and get the game ID from the API
+  async createGame() {
+    try {
+      const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Your Game Name', // Replace 'Your Game Name' with your desired game name
+        }),
+      };
+
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+
+      if (data && data.result) {
+        this.gameID = data.result.replace('Game with ID: ', '');
+        console.log('Game ID:', this.gameID);
+        localStorage.setItem('gameID', this.gameID); // Save the game ID in local storage
+      } else {
+        console.error('Error creating game:', data);
+      }
+    } catch (error) {
+      console.error('Error creating game:', error);
     }
   }
 
-  clearInput = () => {
-    this.Name.value = '';
-    this.Score.value = '';
-  };
+  // Method to add a new record to the collection and send it to the API
+  async addRecords() {
+    if (this.Name.value !== '' && this.Score.value !== '') {
+      const record = new Record(this.Name.value, this.Score.value);
+      this.collection.unshift(record);
+      this.saveRecords();
+      await this.sendRecordToAPI(record);
+      this.clearInput();
+    }
+  }
 
+  // Method to save the collection to local storage
   saveRecords() {
     localStorage.setItem('records', JSON.stringify(this.collection));
   }
 
+  // Method to send a record to the API
+  async sendRecordToAPI(record) {
+    try {
+      if (!this.gameID) {
+        console.error('Game ID is not available. Please create a game first.');
+        return;
+      }
+
+      const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${this.gameID}/scores/`;
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user: record.name,
+          score: record.score,
+        }),
+      };
+
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error sending data to API:', error);
+    }
+  }
+
+  // Method to fetch scores from the API and update the collection
+  async fetchScores() {
+    try {
+      if (!this.gameID) {
+        console.error('Game ID is not available. Please create a game first.');
+        return;
+      }
+
+      const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${this.gameID}/scores/`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data && data.result && Array.isArray(data.result)) {
+        this.collection = data.result.map((record) => new Record(record.user, record.score));
+        this.saveRecords();
+      }
+    } catch (error) {
+      console.error('Error fetching data from API:', error);
+    }
+  }
+
+  // Method to fetch scores from the API and update the table-section
+  async fetchScoresAndShowRecords() {
+    await this.fetchScores();
+    this.showRecords();
+  }
+
+  // Method to display records in the table-section
   showRecords() {
     const displayRecords = this.collection.map((record, index) => `
       <div class="record-store ${index % 2 === 1 ? 'odd-index' : ''}">
@@ -46,6 +128,21 @@ export class RecordsCollection {
         </div>
       </div>
     `);
-    this.Table.innerHTML = displayRecords.join('');
+    this.Table.innerHTML = displayRecords.reverse().join('');
+  }
+
+  // Method to clear input fields after submitting a record
+  clearInput() {
+    this.Name.value = '';
+    this.Score.value = '';
+  }
+
+  // Method to initialize the instance and create a new game
+  init() {
+    if (!this.gameID) {
+      this.createGame();
+    } else {
+      this.fetchScoresAndShowRecords();
+    }
   }
 }
