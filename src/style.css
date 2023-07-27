@@ -77,10 +77,6 @@ body {
   padding-right: 2px;
 }
 
-&:active {
-  background-color: rgb(242, 163, 163);
-}
-
 .form {
   position: relative;
   display: flex;
