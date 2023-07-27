@@ -77,10 +77,6 @@ body {
   padding-right: 2px;
 }
 
-&:hover {
-  background-color: red;
-}
-
 &:active {
   background-color: rgb(242, 163, 163);
 }
