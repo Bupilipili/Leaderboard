@@ -77,14 +77,6 @@ body {
   padding-right: 2px;
 }
 
-&:hover {
-  background-color: red;
-}
-
-&:active {
-  background-color: rgb(242, 163, 163);
-}
-
 .form {
   position: relative;
   display: flex;
@@ -115,7 +107,7 @@ body {
   box-shadow: 4px 3px 2px #000;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
   font-size: 1.3em;
-  position: absolute;
-  right: 10%;
+  position: relative;
+  right: -33%;
   bottom: 0%;
 }
