@@ -29,7 +29,7 @@ export class RecordsCollection {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: 'Your Game Name', // Replace 'Your Game Name' with your desired game name
+          name: 'Crust',
         }),
       };
 
