@@ -115,7 +115,7 @@ body {
   box-shadow: 4px 3px 2px #000;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
   font-size: 1.3em;
-  position: absolute;
-  right: 10%;
+  position: relative;
+  right: -33%;
   bottom: 0%;
 }
