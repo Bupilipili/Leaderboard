@@ -1,9 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable no-console */
-import { Record } from './classRecord.js';
+import Record from './classRecord.js';
 
 // Represents a collection of records and manages interactions with API and local storage
-export class RecordsCollection {
+class RecordsCollection {
   constructor() {
     // Load existing records from local storage or initialize an empty array
     this.collection = JSON.parse(localStorage.getItem('records')) || [];
@@ -147,3 +145,6 @@ export class RecordsCollection {
     }
   }
 }
+
+export default RecordsCollection;
+/* eslint-disable no-console */
