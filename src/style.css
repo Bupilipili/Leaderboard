@@ -2,17 +2,34 @@
 body {
   margin: 0 auto;
   min-width: 375px;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-size: 6.4rem;
+  margin-bottom: 0;
+  color: #222;
 }
 
 .content {
   display: flex;
-  gap: 28px;
+  gap: 8px;
+  padding: 2%;
+  justify-content: center;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .align {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5rem;
 }
 
 .table-title {
@@ -24,18 +41,24 @@ body {
 .refresh-button {
   width: 60px;
   height: 26px;
-  border: 1px solid #000;
+  border: 2px solid #000;
   box-shadow: 4px 3px 2px #000;
   justify-self: flex-end;
-  font-size: 1.2em;
+  font-size: 18px;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.refresh-button:active {
+  transform: scale(1.15);
 }
 
 .table-section {
-  width: min(420px, 92%);
-  border: 3px solid rgba(0, 0, 0, 0.9);
-  margin: 0 auto;
+  width: min(420px, 100%);
+  border: 3px solid #ddd;
+  margin: 0;
+  border-radius: 8px;
 }
 
 .record-store {
@@ -48,7 +71,7 @@ body {
 }
 
 .odd-index {
-  background-color: #ddd;
+  background-color: #f2f2f2;
 }
 
 .store-text {
@@ -59,22 +82,24 @@ body {
 }
 
 .form-title {
-  font-size: 1.4em;
+  font-size: 3.4em;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
   font-weight: 700;
   margin: 0;
 }
 
-.name {
-  margin-right: 2px;
-}
-
+.name,
 .score {
-  margin-left: 2px;
+  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  margin-right: 2px;
+  color: #007bff;
+  font-size: 24px;
 }
 
 .by-text {
   padding-right: 2px;
+  color: #007bff;
 }
 
 .form {
@@ -82,8 +107,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  width: min(420px, 90%);
+  margin: 0;
+  width: min(420px, 100%);
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
 }
 
@@ -92,17 +117,16 @@ body {
   width: min(340px, 92%);
   height: 32px;
   margin: 0 auto;
-  color: #000;
-  font-size: 1.2em;
+  color: #007bff;
+  font-size: 24px;
   padding: 0 2%;
-  border: 3px solid #000;
+  border: 3px solid #ddd;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
 }
 
 .add-button {
   width: 70px;
   height: 30px;
-  color: #000;
   border: 2px solid #000;
   box-shadow: 4px 3px 2px #000;
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
@@ -110,4 +134,10 @@ body {
   position: relative;
   right: -33%;
   bottom: 0%;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.add-button:active {
+  transform: scale(1.15);
 }
