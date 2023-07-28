@@ -50,6 +50,10 @@ h1 {
   color: #fff;
 }
 
+.refresh-button:active {
+  transform: scale(1.15);
+}
+
 .table-section {
   width: min(420px, 100%);
   border: 3px solid #ddd;
@@ -132,4 +136,8 @@ h1 {
   bottom: 0%;
   background-color: #007bff;
   color: #fff;
+}
+
+.add-button:active {
+  transform: scale(1.15);
 }
