@@ -6,6 +6,7 @@ module.exports = {
   entry: './src/index.js',
   devServer: {
     static: './dist',
+    publicPath: '/dist',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -16,7 +17,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/',
+    publicPath: '/dist',
   },
   optimization: {
     runtimeChunk: 'single',
