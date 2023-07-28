@@ -56,6 +56,12 @@ In order to run this project you need:
 - **[A code editor like VS code]**
 - **[Internet connection]**
 
+Before running the app, Follow these steps to get the API key(s):
+- Go to the website of the API provider(s) and sign up for an account.
+- Once you have an account, navigate to the API documentation to find details on how to obtain an API key or credentials.
+- Some APIs may require you to create a new project or app to get a unique API key.
+- Make sure to review the API provider's terms of service and usage guidelines.
+
 Also:
 
 - npm install
