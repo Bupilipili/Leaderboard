@@ -119,6 +119,10 @@ class RecordsCollection {
 
   // Method to display records in the table-section
   showRecords() {
+    // Sort the collection by score in descending order
+    this.collection.sort((a, b) => b.score - a.score);
+
+    // Create an array of HTML elements representing each record
     const displayRecords = this.collection.map((record, index) => `
       <div class="record-store ${index % 2 === 1 ? 'odd-index' : ''}">
         <div class="store-text">
@@ -128,7 +132,9 @@ class RecordsCollection {
         </div>
       </div>
     `);
-    this.Table.innerHTML = displayRecords.reverse().join('');
+
+    // Replace the existing content in the 'table-section' with the new records
+    this.Table.innerHTML = displayRecords.join('');
   }
 
   // Method to clear input fields after submitting a record
