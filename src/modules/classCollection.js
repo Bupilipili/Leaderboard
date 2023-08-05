@@ -34,8 +34,8 @@ class RecordsCollection {
 
       const response = await fetch(url, requestOptions);
       const data = await response.json();
-
       /* eslint-disable no-console */
+
       if (data && data.result) {
         this.gameID = data.result.replace('Game with ID: ', '');
         console.log('Game ID:', this.gameID);
